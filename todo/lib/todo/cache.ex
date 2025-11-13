@@ -2,9 +2,9 @@ defmodule Todo.Cache do
   use GenServer
 
   def init(_) do
-    {
-      :ok, %{}
-    }
+
+    Todo.Database.start()
+    {:ok, %{}}
   end
 
   def handle_call({:server_process, todo_list_name}, _, todo_servers) do
